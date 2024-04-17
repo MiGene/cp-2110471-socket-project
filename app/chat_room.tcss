@@ -1,0 +1,41 @@
+/* ModeSwitchingButton {
+    layout: horizontal;
+    background: blue;
+} */
+/* Screen {
+    background: red;
+} */
+
+ChatApp {
+    background: red;
+    layout: vertical;
+}
+
+
+Button {
+    width: 2;
+}
+
+InputText {
+    layout: horizontal;
+}
+/* 
+TextDiv {
+    align-horizontal : <horizontal>;
+} */
+
+
+#textBox {
+    max-width: 80%;
+    margin: 1 2;
+}
+
+#sendButton {
+    margin: 1 2;
+}
+
+#switch{
+    align: right top;
+}
+
+/* .message */
