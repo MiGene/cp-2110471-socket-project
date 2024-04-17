@@ -1,0 +1,8 @@
+ModeSwitchingButton {
+    layout: horizontal;
+    background: blue;
+}
+
+Button {
+    width: 2;
+}
