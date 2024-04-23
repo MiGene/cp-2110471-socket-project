@@ -56,7 +56,7 @@ class Left(Static):
 class Top(Static):
     def compose(self):
         yield CreateGroup()
-        yield JoinGroup()
+        # yield JoinGroup()
 
 
 class CreateGroup(Static):
@@ -203,6 +203,7 @@ class SwitchMode(Static):
 # * Input message and send Button div
 # TODO apply send message function
 class InputText(Static):
+    message_to_send = reactive("")
     def compose(self):
         yield Input(placeholder='text something...', id='textBox')
         yield Button('send', variant='primary', id='sendButton')
@@ -229,7 +230,7 @@ class AppGUI(App):
             disc_callback=None
         )
 
-        self.message_to_send = 'asfasf'
+        self.message_to_send = ''
         self.groupName = ''
 
         self.recv_count = 0
@@ -400,9 +401,14 @@ class AppGUI(App):
             new_message = MessageBox(sender='HIII', message='HIII')
             chat_container.mount(new_message)
 
+    @on(Input.Changed, '#textBox') 
+    def textInputHandler(self,event:Input.Changed) -> None :
+        self.query_one(InputText).message_to_send = event.value
+        self.message_to_send = self.query_one(InputText).message_to_send
+
     @on(Button.Pressed, '#sendButton')
     def action_add_message(self) -> None:
-        self.message_to_send = str(self.recv_count)
+        # self.message_to_send = str(self.recv_count)
         if self.src[0]:
             self.agent.send_group(group_name=self.src[0],
                                   data_type=MessageProtocolCode.DATA.PLAIN_TEXT,
