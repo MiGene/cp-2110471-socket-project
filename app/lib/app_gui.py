@@ -391,10 +391,10 @@ class AppGUI(App):
         # self.agent.send_private('vt', 'safgsfgdjshf')
         self.dark = not self.dark
 
-        if self.client_name == 'p':
-            self.chat('g')
-        if self.client_name == 'g':
-            self.chat('p')
+        if self.client_name == 'x':
+            self.chat('y')
+        if self.client_name == 'y':
+            self.chat('x')
 
         chat_container = self.query_one("#chat")
         if self.src[1]:
